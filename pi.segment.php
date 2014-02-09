@@ -12,9 +12,9 @@ class Plugin_segment extends Plugin
 
 	//--------------------------------------------------------------------------
 
-	public function index()
+	public function index($num = 1)
 	{
-		$num = $this->fetchParam('num', 1);
+		$num = $this->fetchParam('num', $num);
 		$url = $this->fetchParam('url', URL::getCurrent());
 		$segments = explode('/', URL::format($url));
 		if ($num < 0) {
@@ -22,5 +22,10 @@ class Plugin_segment extends Plugin
 		} else {
 			return $segments[$num];
 		}
+	}
+
+	public function parent_url()
+	{
+		return $this->index(-1);
 	}
 }
