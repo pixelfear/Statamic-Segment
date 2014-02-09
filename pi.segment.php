@@ -25,4 +25,22 @@ class Plugin_segment extends Plugin
 			}
 		}
 	}
+
+	public function url($num = 0)
+	{
+		$num = $this->fetchParam('num', $num);
+		$url = $this->fetchParam('url', URL::getCurrent());
+		$segments = explode('/', URL::format($url));
+		if ($url) {
+			if ($num >= 0)
+				return implode('/', array_slice($segments, 0, $num + 1));
+			else
+				return implode('/', array_slice($segments, 0, $num));
+		}
+	}
+
+	public function parent_url()
+	{
+		return $this->url(-1);
+	}
 }

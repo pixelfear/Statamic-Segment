@@ -20,3 +20,21 @@ Use a negative num to get segments from the end of the URL.
     
     {{ segment url="/blog/categories/whiskey" }}
     Outputs: blog
+
+Use segment:url and segment:parent_url to get the full url of segments.  
+    (Note: url will default to current_url for this tag)
+
+    {{ segment:url num="2" url="/blog/categories/whiskey" }}
+    Outputs: /blog/categories
+
+    {{ segment:url num="1" url="/blog/categories/whiskey" }}
+    Outputs: /blog
+
+    {{ segment num="-1" url="/blog/categories/whiskey" }}
+    Outputs: /blog/categories
+    
+    {{ segment num="-2" url="/blog/categories/whiskey" }}
+    Outputs: /blog
+    
+    {{ segment:parent_url url="/blog/categories/whiskey" }}
+    Outputs: /blog/categories
