@@ -15,14 +15,12 @@ class Plugin_segment extends Plugin
 	public function index()
 	{
 		$num = $this->fetchParam('num', 1);
-		$url = $this->fetchParam('url');
+		$url = $this->fetchParam('url', URL::getCurrent());
 		$segments = explode('/', URL::format($url));
-		if ($url) {
-			if ($num < 0) {
-				return implode('/', array_slice($segments, 0, $num));
-			} else {
-				return $segments[$num];
-			}
+		if ($num < 0) {
+			return implode('/', array_slice($segments, 0, $num));
+		} else {
+			return $segments[$num];
 		}
 	}
 }

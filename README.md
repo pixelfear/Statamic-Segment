@@ -1,4 +1,4 @@
-A quick plugin to get the segments of a supplied URL.
+A quick plugin to get the segments of the current URL or a supplied URL.
 
     {{ segment num="2" url="/blog/categories/whiskey" }}
     Outputs: categories
@@ -15,3 +15,11 @@ A quick plugin to get the segments of a supplied URL.
 
     {{ segment num="-2" url="/blog/categories/whiskey" }}
     Outputs: /blog
+
+    (current_url="/blog/categories/whiskey")
+    {{ segment num="1" }}
+    Outputs: blog
+
+    (current_url="/blog/categories/whiskey")
+    {{ segment num="-1" }}
+    Outputs: /blog/categories
