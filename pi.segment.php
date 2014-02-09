@@ -18,7 +18,11 @@ class Plugin_segment extends Plugin
 		$url = $this->fetchParam('url');
 		$segments = explode('/', URL::format($url));
 		if ($url) {
-			return $segments[$num];
+			if ($num < 0) {
+				return implode('/', array_slice($segments, 0, $num));
+			} else {
+				return $segments[$num];
+			}
 		}
 	}
 }
