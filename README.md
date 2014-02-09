@@ -26,5 +26,5 @@ A quick plugin to get the segments of the current URL or a supplied URL.
 
     {{ segment:parent_url }}
     Outputs: /blog/categories
-    (Alias for {{ segment at="-1" }})
+    (Alias for {{ segment num="-1" }})
     ("{ segment:parent_url }" can be used in tag params)
